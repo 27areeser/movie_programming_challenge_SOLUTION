@@ -66,7 +66,21 @@ public class MovieCollection
     // displays all movies in the collection in order sorted by rating
     public void displayMovies()
     {
-        // Implement this method
+        System.out.println();
+        if (movies.size() >= 1)
+        {
+            System.out.println("All the movies in your collection include: ");
+            for (int i = 0; i < movies.size(); i++)
+            {
+                System.out.println((i + 1) + ". " + movies.get(i));
+            }
+
+        }
+        else
+        {
+            System.out.println("There are no movies in your collection.");
+        }
+        System.out.println();
     }
 
     /*

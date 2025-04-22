@@ -24,7 +24,7 @@ public class MovieManager
     {
         Scanner scanner = new Scanner(System.in);
         MovieCollection movieCollection = new MovieCollection();
-        int choice = scanner.nextInt();
+        int choice = 0;
 
 
         while (choice != 5)
@@ -41,22 +41,29 @@ public class MovieManager
                 double rating = Double.parseDouble(scanner.nextLine());
                 movieCollection.addMovie(title, year, rating);
             }
-            /*
+
             else if (choice == 2)
             {
+                boolean answer = false;
                 System.out.print("Movie title: ");
                 String title = scanner.nextLine();
-                System.out.print("Movie year: ");
-                int year = Integer.parseInt(scanner.nextLine());
-                System.out.print("Movie rating [0.0 - 10.0]: ");
-                double rating = Double.parseDouble(scanner.nextLine());
-                movieCollection.addMovie(title, year, rating);
+                answer = movieCollection.removeMovie(title);
+                if (answer == true)
+                {
+                    System.out.println("Movie removed successfully!");
+                }
+                else
+                {
+                    System.out.println("Movie removal unsuccessful.");
+                }
             }
-            */
+            else if (choice == 4)
+            {
+                movieCollection.displayMovies();
+            }
         }
-
-
     }
+
 
     public static void writeOptions()
     {
