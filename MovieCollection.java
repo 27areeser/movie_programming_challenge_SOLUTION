@@ -10,11 +10,12 @@ public class MovieCollection
     }
 
     
-    // adds a new movie to the movie collection and sort
+    // Adds a new movie to the movie collection and sort
     public void addMovie(String title, int year, double rating)
     {
-        // Implement this method
+        // Creates a new movie object to be used
         Movie newMovie = new Movie(title, year, rating);
+
         // Conditional for beginning of array
         if ((movies.size() == 0) || (newMovie.getRating() >= movies.get(0).getRating()))
         {
@@ -31,6 +32,7 @@ public class MovieCollection
                 if (newMovie.getRating() <= movies.get(i).getRating() && newMovie.getRating() > movies.get(i+1).getRating())
                 {
                     movies.add(i, newMovie);
+                    break;
                 }
             }
         }
@@ -45,13 +47,13 @@ public class MovieCollection
     {
         for(int i = 0; i < movies.size(); i++)
         {
-            if (title.equals(movies.get(i)))
+            if (title.equals(movies.get(i).getTitle()))
             {
                 movies.remove(i);
-                return true;
+                return true; // Removes movie successfully
             }
         }
-        return false;
+        return false; // Fails to remove movie
     }
 
     // search for a movie
@@ -59,22 +61,27 @@ public class MovieCollection
     // return null if movie is not in collection
     public Movie searchMovie(String title)
     {
-        // Implement this method
-        return null;
+        for(int i = 0; i < movies.size(); i++)
+        {
+            if (title.equals(movies.get(i).getTitle()))
+            {
+                return movies.get(i);
+            }
+        }
+        return null; // Fails to find listed movie
     }
 
     // displays all movies in the collection in order sorted by rating
     public void displayMovies()
     {
         System.out.println();
-        if (movies.size() >= 1)
+        if (movies.size() >= 1) // Checks to esnure there is at least one movie in the movies list
         {
             System.out.println("All the movies in your collection include: ");
             for (int i = 0; i < movies.size(); i++)
             {
-                System.out.println((i + 1) + ". " + movies.get(i));
+                System.out.println((i + 1) + ". " + movies.get(i).toString());
             }
-
         }
         else
         {
@@ -82,12 +89,4 @@ public class MovieCollection
         }
         System.out.println();
     }
-
-    /*
-    // sorts movies by rating - use Bubblesort
-    private void sortMoviesByRating()
-    {
-        // Implement this method
-    }
-    */
 }

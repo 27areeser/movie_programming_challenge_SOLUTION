@@ -39,15 +39,17 @@ public class MovieManager
                 int year = Integer.parseInt(scanner.nextLine());
                 System.out.print("Movie rating [0.0 - 10.0]: ");
                 double rating = Double.parseDouble(scanner.nextLine());
+                System.out.println();
                 movieCollection.addMovie(title, year, rating);
+                System.out.println();
             }
 
             else if (choice == 2)
             {
-                boolean answer = false;
                 System.out.print("Movie title: ");
                 String title = scanner.nextLine();
-                answer = movieCollection.removeMovie(title);
+                System.out.println();
+                boolean answer = movieCollection.removeMovie(title);
                 if (answer == true)
                 {
                     System.out.println("Movie removed successfully!");
@@ -56,6 +58,23 @@ public class MovieManager
                 {
                     System.out.println("Movie removal unsuccessful.");
                 }
+                System.out.println();
+            }
+
+            else if (choice == 3)
+            {
+                System.out.print("Movie title: ");
+                String title = scanner.nextLine();
+                System.out.println();
+                if (movieCollection.searchMovie(title) == null)
+                {
+                    System.out.println("Movie not found.");
+                }
+                else
+                {
+                    System.out.println(movieCollection.searchMovie(title));
+                }
+                System.out.println();
             }
             else if (choice == 4)
             {
