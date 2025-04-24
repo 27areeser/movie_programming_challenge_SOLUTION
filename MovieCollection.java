@@ -9,7 +9,7 @@ public class MovieCollection
         movies = new ArrayList<Movie>();
     }
 
-    
+    // ADD MOVIE METHOD
     // Adds a new movie to the movie collection and sort
     public void addMovie(String title, int year, double rating)
     {
@@ -21,7 +21,7 @@ public class MovieCollection
         {
             movies.add(0, newMovie);
         }
-        else if (newMovie.getRating() < movies.get(movies.size() - 1).getRating())
+        else if (newMovie.getRating() < movies.get(movies.size() - 1).getRating()) // Conditional for end of array
         {
             movies.add(newMovie);
         }
@@ -31,7 +31,7 @@ public class MovieCollection
             {
                 if (newMovie.getRating() <= movies.get(i).getRating() && newMovie.getRating() > movies.get(i+1).getRating())
                 {
-                    movies.add(i, newMovie);
+                    movies.add(i + 1, newMovie);
                     break;
                 }
             }
@@ -39,7 +39,7 @@ public class MovieCollection
         System.out.println("Movie added successfully!");
     }
     
-
+    // REMOVE MOVIE METHOD
     // removes a movie from the movie collection
     // return true if movie was successfully removed
     // return false if movie cannot be found
@@ -56,6 +56,7 @@ public class MovieCollection
         return false; // Fails to remove movie
     }
 
+    // SEARCH MOVIE METHOD
     // search for a movie
     // returns Movie object if exists
     // return null if movie is not in collection
@@ -71,6 +72,7 @@ public class MovieCollection
         return null; // Fails to find listed movie
     }
 
+    // DISPLAY MOVIE METHOD
     // displays all movies in the collection in order sorted by rating
     public void displayMovies()
     {
